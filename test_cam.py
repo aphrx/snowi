@@ -35,6 +35,24 @@ while(True):
         GPIO.output(in3, GPIO.HIGH)
         GPIO.output(in4, GPIO.LOW)
 
+    if key == ord('a'):
+        GPIO.output(in1, GPIO.LOW)
+        GPIO.output(in2, GPIO.HIGH)
+        GPIO.output(in3, GPIO.HIGH)
+        GPIO.output(in4, GPIO.LOW)
+
+    if key == ord('s'):
+        GPIO.output(in1, GPIO.LOW)
+        GPIO.output(in2, GPIO.HIGH)
+        GPIO.output(in3, GPIO.LOW)
+        GPIO.output(in4, GPIO.HIGH)
+
+    if key == ord('d'):
+        GPIO.output(in1, GPIO.HIGH)
+        GPIO.output(in2, GPIO.LOW)
+        GPIO.output(in3, GPIO.LOW)
+        GPIO.output(in4, GPIO.HIGH)
+
 
 # When everything done, release the capture
 cap.release()
