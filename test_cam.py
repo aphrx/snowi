@@ -6,7 +6,7 @@ cap = cv2.VideoCapture(0)
 
 # video recorder
 #fourcc = cv2.VideoWriter_fourcc(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
-video_writer = cv2.VideoWriter("output.avi", -1, 20, (680, 480))
+#video_writer = cv2.VideoWriter("output.avi", -1, 20, (680, 480))
 
 in1 = 27
 in2 = 22
@@ -22,9 +22,6 @@ GPIO.setup(in4, GPIO.OUT)
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
-    if ret == True:
-        video_writer.write(frame)
-        cv2.imshow('Video Stream', frame)
 
     # Display the resulting frame
     cv2.imshow('frame', frame)
