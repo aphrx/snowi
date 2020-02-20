@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 cap = cv2.VideoCapture(0)
 
 # video recorder
-fourcc = cv2.VideoWriter_fourcc(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
-video_writer = cv2.VideoWriter("output.avi", fourcc, 20, (680, 480))
+#fourcc = cv2.VideoWriter_fourcc(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
+video_writer = cv2.VideoWriter("output.avi", -1, 20, (680, 480))
 
 in1 = 27
 in2 = 22
@@ -22,7 +22,7 @@ GPIO.setup(in4, GPIO.OUT)
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
-    if ret:
+    if ret == True:
         video_writer.write(frame)
         cv2.imshow('Video Stream', frame)
 
@@ -72,5 +72,6 @@ while(True):
 
 # When everything done, release the capture
 cap.release()
+video_writer.release()
 cv2.destroyAllWindows()
 
