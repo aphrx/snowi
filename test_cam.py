@@ -4,6 +4,10 @@ import RPi.GPIO as GPIO
 
 cap = cv2.VideoCapture(0)
 
+# video recorder
+    fourcc = cv2.cv.CV_FOURCC(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
+    video_writer = cv2.VideoWriter("output.avi", fourcc, 20, (680, 480))
+
 in1 = 27
 in2 = 22
 in3 = 24
@@ -18,6 +22,9 @@ GPIO.setup(in4, GPIO.OUT)
 while(True):
     # Capture frame-by-frame
     ret, frame = cap.read()
+    if ret:
+            video_writer.write(frame)
+            cv2.imshow('Video Stream', frame)
 
     # Display the resulting frame
     cv2.imshow('frame', frame)
@@ -29,25 +36,29 @@ while(True):
         break
 
     key = cv2.waitKey(1) & 0xFF
+    # Forward
     if key == ord('w'):
         GPIO.output(in1, GPIO.HIGH)
         GPIO.output(in2, GPIO.LOW)
         GPIO.output(in3, GPIO.HIGH)
         GPIO.output(in4, GPIO.LOW)
 
-    if key == ord('a'):
+    # Right
+    if key == ord('d'):
         GPIO.output(in1, GPIO.LOW)
         GPIO.output(in2, GPIO.HIGH)
         GPIO.output(in3, GPIO.HIGH)
         GPIO.output(in4, GPIO.LOW)
 
+    # Back
     if key == ord('s'):
         GPIO.output(in1, GPIO.LOW)
         GPIO.output(in2, GPIO.HIGH)
         GPIO.output(in3, GPIO.LOW)
         GPIO.output(in4, GPIO.HIGH)
 
-    if key == ord('d'):
+    # Left
+    if key == ord('a'):
         GPIO.output(in1, GPIO.HIGH)
         GPIO.output(in2, GPIO.LOW)
         GPIO.output(in3, GPIO.LOW)
