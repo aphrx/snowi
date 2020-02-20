@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 cap = cv2.VideoCapture(0)
 
 # video recorder
-    fourcc = cv2.cv.CV_FOURCC(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
-    video_writer = cv2.VideoWriter("output.avi", fourcc, 20, (680, 480))
+fourcc = cv2.cv.CV_FOURCC(*'XVID')  # cv2.VideoWriter_fourcc() does not exist
+video_writer = cv2.VideoWriter("output.avi", fourcc, 20, (680, 480))
 
 in1 = 27
 in2 = 22
