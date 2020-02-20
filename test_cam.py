@@ -46,7 +46,7 @@ while(True):
     # Right
     if key == ord('d'):
         GPIO.output(in1, GPIO.LOW)
-        GPIO.output(in2, GPIO.HIGH)
+        GPIO.output(in2, GPIO.LOW)
         GPIO.output(in3, GPIO.HIGH)
         GPIO.output(in4, GPIO.LOW)
 
@@ -62,8 +62,13 @@ while(True):
         GPIO.output(in1, GPIO.HIGH)
         GPIO.output(in2, GPIO.LOW)
         GPIO.output(in3, GPIO.LOW)
-        GPIO.output(in4, GPIO.HIGH)
+        GPIO.output(in4, GPIO.LOW)
 
+    if key == ord('e'):
+        GPIO.output(in1, GPIO.LOW)
+        GPIO.output(in2, GPIO.LOW)
+        GPIO.output(in3, GPIO.LOW)
+        GPIO.output(in4, GPIO.LOW)
 
 # When everything done, release the capture
 cap.release()
